@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment 9 part 2</title>
+    <script src="js/jquery.js"></script>
+</head>
+<script>
+    function lineBreak() {
+        $("body").append("<br>");
+    }
+
+    $(document).ready(function() {
+        // Part 1
+        var one = $('<input type="button" value="Part 1"/>');
+        one.click(function() {
+            alert("Button 1 was clicked");
+        });
+        $("body").append(one);
+        lineBreak();
+
+        // Part 2
+        var two = $('<input type="button" value="Part 2"/>');
+        two.bind("click", function() {
+            alert("Button 2 was clicked");
+        });
+        $("body").append(two);
+        lineBreak();
+
+        // Part 3
+        var three = $('<input type="button" value="Part 3"/>');
+        three.on("click", function() {
+            alert("Button 3 was clicked");
+        });
+        $("body").append(three);
+        lineBreak();
+
+        // Part 4
+        // var fourA = $('<input type="button" value="Part 4"/>');
+        // var fourB = $('<input type="button" value="Part 4"/>');
+        // $(fourA, fourB).on("click", function(){
+        //     alert("One of the part 4 buttons was clicked");
+        // });
+        // $("body").append(fourA, fourB);
+        // lineBreak();
+
+        // Part 5
+        var five = $('<div style="height:400px; width:400px; clear:both;"></div>');
+        five.on("click", function() {
+        	alert("Div was clicked");
+        });
+
+        five.on("mouseenter", function() {
+        	alert("Mouse entered the div");
+        });
+
+        five.on("mouseleave", function() {
+            alert("Mouse left the div");
+        });
+
+        $(five).css("background", "#DFE3E6");
+        $("body").append(five);
+        lineBreak();
+
+        // Part 6
+        var six = $('<div style="height:400px; width:400px; clear:both;"></div>');
+        var span = $("<span>");
+
+        six.on("click", function() {
+        	span.text("Div was clicked")
+        });
+
+        six.on("mouseenter", function() {
+        	span.text("Mouse entered the div");
+        });
+
+        six.on("mouseleave", function() {
+            span.text("Mouse left the div");
+        });
+
+        $(six).css("background", "#DFE3E6");
+        $("body").append(six);
+        $("body").append(span);
+        lineBreak();
+
+        // Part 7
+        var seven = $("<a>", {
+        	href: "http://www.modulemedia.com",
+        	text: "module media"
+        });
+
+        seven.on("click", function(e) {
+        	e.preventDefault();
+        	e.target.style.color = "red";
+        	alert("Node: " + $(e.target).prop("tagName"));
+        });
+
+        $("body").append(seven);
+        lineBreak();
+
+        // Part 8
+        var eight = $('<div style="height:100px; width:100px; clear:both;"></div>');
+        $(eight).css("background", "#DFE3E6");
+        $("body").append(eight);
+        $(window).resize(function(e) {
+        	$(eight).text("width: " + e.target.innerWidth + ", height: " + e.target.innerHeight);
+        });
+        lineBreak();
+
+        // Part 9
+        var nine = $("<input>", {})
+
+        nine.on("focus", function(e){
+        	e.target.style.background = "lightgray";
+        });
+
+        nine.on("blur", function(e){
+        	e.target.style.background = "white";
+        });
+
+        $("body").append(nine);
+        lineBreak();
+
+        // Part 10
+        var ten = $("<form>", {});
+
+        var name = $("<input>", {
+        	id: "name",
+        	placeholder: "Name"
+        });
+
+        var email = $("<input>", {
+        	id: "email",
+        	placeholder: "Email"
+        });
+
+        var submit = $("<button>", {
+        	type: "submit",
+        	text: "Submit"
+        });
+
+        ten.append(name);
+        ten.append($("<br>"));
+        ten.append(email);
+        ten.append($("<br>"));
+        ten.append(submit);
+        ten.submit(function(e) {
+        	e.preventDefault();
+        	var nameIsValid = true;
+        	var emailIsValid = true;
+        	if($(name).val().trim() === "") {
+        		nameIsValid= false;
+        		name.css("border","1px solid red");
+        	} else {
+        		name.css("border","1px solid black");
+        	}
+
+        	if($(email).val().trim() === "") {
+        		emailIisValid = false;
+        		email.css("border","1px solid red");
+        	} else {
+        		email.css("border","1px solid black");
+        	}
+
+        	if(nameIsValid && emailIsValid) {
+                name.css("border","1px solid green");
+        		email.css("border","1px solid green");
+        	} else {
+        		alert("Please fill out both fields.");
+        	}
+        });
+        $("body").append(ten);
+        });
+</script>
+<body>
+</body>
+</html>
