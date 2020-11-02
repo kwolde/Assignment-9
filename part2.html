@@ -37,13 +37,13 @@
         lineBreak();
 
         // Part 4
-        // var fourA = $('<input type="button" value="Part 4"/>');
-        // var fourB = $('<input type="button" value="Part 4"/>');
-        // $(fourA, fourB).on("click", function(){
-        //     alert("One of the part 4 buttons was clicked");
-        // });
-        // $("body").append(fourA, fourB);
-        // lineBreak();
+        var fourA = $('<input class="four "type="button" value="Part 4"/>');
+        var fourB = $('<input class="four" type="button" value="Part 4"/>');
+        $("body").append(fourA, fourB);
+        $(".four").on("click", function(e){
+            alert("One of the part 4 buttons was clicked");
+        });
+        lineBreak();
 
         // Part 5
         var five = $('<div style="height:400px; width:400px; clear:both;"></div>');
